@@ -60,7 +60,7 @@ The main objective of this project is to detect discriminating features in an im
       * Step 1. Download Code as Zip OR <br> 
 
 ```
-git clone https://github.com/manthan89-py/Face-Mask-Entrance-System.git
+git clone https://github.com/ma-shamshiri/Face-Mask-Detection.git
 ```
 
 <b>Step 2.</b> Create a new virtual environment
