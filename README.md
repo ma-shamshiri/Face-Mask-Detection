@@ -11,12 +11,7 @@ The main objective of this project is to detect discriminating features in an im
 <h2 id="table-of-contents"> Table of Contents</h2>
   <ol>
     <li><a href="#prerequisites"> Prerequisites </a></li>
-    <li><a href="#DesignFeatureDetection"> Design a Feature Detection </a></li>
-      <ul>
-        <li><a href="#FeatureDetection"> Feature Detection </a></li>
-        <li><a href="#FeatureDescription"> Feature Description </a></li>
-        <li><a href="#FeatureMatching"> Feature Matching </a></li>
-      </ul>
+    <li><a href="#HowToUse"> How to Use </a></li>
     <li><a href="#results"> Results </a></li>
     <li><a href="#reference"> Reference </a></li>
     <li><a href="#credits"> Credits </a></li>
@@ -58,46 +53,46 @@ The main objective of this project is to detect discriminating features in an im
       * <a href="https://jupyter.org/" target="_blank">Jupyter (4.7.1)</a> - `pip install notebook`
 
 
-<!-- Design Feature Detection -->
-<h2 id="DesignFeatureDetection"> Design Feature Detection </h2>
+<!-- How to Use -->
+<h2 id="HowToUse"> How to Use </h2>
 
 <p align="justify">
-This involves three steps: feature detection, feature description, and feature matching.
-</p> 
+      * Step 1. Download Code as Zip OR <br> 
 
+```
+git clone https://github.com/manthan89-py/Face-Mask-Entrance-System.git
+```
 
-<!-- Feature Detection -->
-<h3 id="FeatureDetection"> Feature Detection </h3>
+<b>Step 2.</b> Create a new virtual environment
+```
+python -m venv tfod #window
+virtualenv tfod #Linux
+```
 
-<p align="justify">
-In this step, we will identify points of interest in the image using the Harris corner detection method. The steps are as follows:
-      * For each point in the image, we consider a window of pixels around that point.
-      * We compute the Harris matrix H for that point, defined as:
-</p>
+<b>Step 3.</b> Activate your virtual environment
+```
+source tfod/bin/activate # Linux
+.\tfod\Scripts\activate # Windows 
+```
 
-<p align="center"> 
-  <img src="images/Harris matrix.png" alt="Harris matrix" height="99%" width="99%">
-</p>
+<b>Step 4.</b> Install dependencies and add virtual environment to the Python Kernel
+```
+python -m pip install --upgrade pip
+pip install ipykernel
+python -m ipykernel install --user --name=tfodj
+```
 
-<p align="justify">
-where the summation is over all pixels(u,v) in the window. The weights w(.,.) should be chosen to be circularly symmetric (for rotation invariance). A common choice is to use a 3x3 or 5x5 Gaussian mask. 
-</p>
+<b>Step 5.</b> Collect images and ensure you change the kernel to the virtual environment.
 
-<!-- Feature Description -->
-<h3 id="FeatureDescription"> FeatureDescription </h3>
+<b>Step 6.</b> Manually divide collected images into two folders train and test. So now all folders and annotations should be split between the following two folders. <br>
+```
+workspace\images\train
+workspace\images\test
+```
 
-<p align="justify">
-Now that we have identified points of interest, the next step is to come up with a descriptor for the feature centered at each interest point, and rotational invariance should be taken into account in this step. This descriptor will be the representation we’ll use to compare features in different images to see if they match.
-</p> 
+<b>Step 7.</b> Begin training process by opening 2. Training and Detection.ipynb, this notebook will walk you through installing Tensorflow Object Detection, making detections, saving and exporting your model.
 
-
-<!-- Feature Matching -->
-<h3 id="FeatureMatching"> Feature Matching </h3>
-
-<p align="justify">
-Now that we have detected and described the features, the next step is to match them, i.e., given a feature in one image, find the best matching feature in one or more other images. This part of the feature detection and matching component is mainly designed to help testing out the feature descriptor. Two distance measures you should implement are:
-      * A threshold on the match score. This is called the SSD distance.
-      * (score of the best feature match)/(score of the second best feature match). This is called the "ratio test".
+<b>Step 8.</b> During this process the Notebook will install Tensorflow Object Detection. You should ideally receive a notification indicating that the API has installed successfully at Step 8 with the last line stating OK.
 </p> 
 
 
