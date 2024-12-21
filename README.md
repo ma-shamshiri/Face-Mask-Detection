@@ -4,7 +4,7 @@
 ![Realtime](https://user-images.githubusercontent.com/49322948/159162779-30679424-991e-4088-a56d-333399887281.gif)
 
 <p align="justify"> 
-The main objective of this project is to detect discriminating features in an image and find the best matching features in other images. Because features should be reasonably invariant to translation, rotation, and illumination.
+The project leverages deep learning to train a model on a database of images for identifying and matching discriminative features across images. By replacing manual feature detection with a data-driven approach, the model achieves robust performance under transformations like translation, rotation, and changes in illumination, making it suitable for applications such as object recognition and image analysis.
 </p>
 
 <!-- TABLE OF CONTENTS -->
